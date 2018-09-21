@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'kelsonregular';
+  src: url("../static/kelson_rg-webfont.woff2") format("woff2"),
+    url("../static/kelson_rg-webfont.woff") format("woff"),
+    url("../static/kelson_rg-webfont.eot") format("embedded-opentype"),
+    url("../static/kelson_rg-webfont.ttf") format("truetype");
+    /* Add other formats as you see fit */
+}
+
+body {
+  font-family: 'kelsonregular';
+}
+
+#content p {
+  line-height: 1.5em;
+  font-size: 0.3em;
+  color: #3b3b3b;
+}
+
+a {
+  text-decoration: none;
+  padding: 0 2px;
+}
+
+a:hover {
+  color: white !important;
+}
+
+a.thelabs {
+  color: #9ad31d;
+}
+
+a.thelabs:hover {
+  background: #9ad31d;
+}
+
+a.linkedin {
+  color: #0077b5;
+}
+
+a.linkedin:hover {
+  background: #0077b5;
+}
+
+a.stackoverflow {
+  color: #ff8b22;
+}
+
+a.stackoverflow:hover {
+  background: #ff8b22;
+}
+
+a.twitter {
+  color: #03a9f4;
+}
+
+a.twitter:hover {
+  background: #03a9f4;
+}
+
+@media only screen and (max-width: 500px) {
+  #content {
+    width: 75%;
+    margin: 200px 0 30% 15%;
+  }
+}

@@ -1,0 +1,19 @@
+image: travix/gocd-agent-gcloud-nodejs:latest
+
+after_script:
+  - rm /tmp/$CI_PIPELINE_ID.json
+
+deploy_production:
+  stage: deploy
+  environment: production
+  only:
+    - master
+  script:
+    - npm install
+    - npm run build
+    - rm -rf node_modules
+    - rm package-lock.json
+    - ls -la
+    - echo $GCP_APP_ENGINE_DEPLOY_KEY > /tmp/$CI_PIPELINE_ID.json
+    - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+    - gcloud --quiet --project $GCP_PROJECT_ID app deploy

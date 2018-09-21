@@ -1,21 +1,17 @@
-const vorpal = require('vorpal')()
-
 const chalk = require('chalk')
-const cliInput = require('./cliInput')
+const fs = require('fs-extra')
+const path = require('path')
+const program = require('commander')
 
+const commands = {
+  go: require('./commands/go')
+}
 
-let prompt
+const corePath = require('./resolve')
 
-vorpal
-  .command('go', 'Generates a new base project')
-  .action(function() {
-    prompt = new Prompt(this)
-  })
+program
+  .version('1.0.0')
+  .command('go [dir]')
+  .action(commands.go)
 
-vorpal
-  .delimiter('Parachute:')
-  .show()
-
-  vorpal.exec('go')
-
-  module.exports = prompt
+program.parse(process.argv)
